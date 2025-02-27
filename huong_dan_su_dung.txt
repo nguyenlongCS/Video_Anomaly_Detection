@@ -1,4 +1,20 @@
+*. dữ liệu train - test (70 - 30)
+Pycharm:
 1. tải các thư viện cần thiết: pip install -r requirements.txt
 2. tạo các checkpoints:        python init_checkpoints.py
 3. để chạy hệ thống lên web:   streamlit run main.py
-*. dữ liệu train - test (70 - 30)
+
+Colab Notebooks/Jupiter Notebooks:
+1. tải các thư viện cần thiết: !pip install -r requirements.txt
+2. tạo các checkpoints:        !python init_checkpoints.py
+3. để chạy hệ thống lên web:
+!pip install streamlit pyngrok
+
+!streamlit run main.py --server.port 8501 --server.address 0.0.0.0
+
+from pyngrok import ngrok
+# Khởi động tunnel cho Streamlit
+public_url = ngrok.connect(8501)
+print(f"Public URL: {public_url}")
+# Chạy Streamlit
+!streamlit run main.py &> /dev/null &
